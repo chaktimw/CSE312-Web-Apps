@@ -1,0 +1,43 @@
+Overview:
+    This assignment was structured based on the requirements for a basic python server using docker.
+
+    These files included:
+    HW1: The Dockerfile, a requirements text file for docker to add, and the python server file itself.
+    HW2: index.html, style.css, functions.js, utf.txt, and an image folder
+
+        The python server takes the received data request, processes it, and then depending on the request type and
+    path, sends out a response in the necessary format.
+
+Basic description of a response to a request:
+        The main function is parseHTTP() which reads the path, and determines if the request is for a file or one
+    of the predetermined paths like "/" for index.html. If the request is for a file, the contents of that file is
+    gathered and sent to a 200 OK response function that contains the skeleton of a response along with the appropriate
+    MIME type. The no-sniff option is added, and the content length is determined from using len() on the byte array
+    of the file contents. If the content were not from a file, it will be encoded with the rest of the response,
+    otherwise the content will be appended after the rest of the response is encoded.
+
+Docker:
+    Based on the docker example for python shown near the end of the docker lecture.
+        The Dockerfile sets the docker image to python, sets the root directory, copies the files from the current directory
+    into the image, installs any requirements (currently none), exposes port 8000, and runs the python server.
+
+HW2
+Objective 1:
+        parseHTTP() can determine if the requested path is a file by looking for a period in the path. Using this info,
+    the MIME type can also be determined through the file extension. The related files are thus easily called.
+
+Objective 2:
+        Using the code created from Objective 1, the utf.txt file can easily be called. However, in order for the utf-8
+    encoded data to be read correctly, the HTTP header, Content-Type, has to have the charset option set to utf-8. The
+    length of the content is also determined by using len() on the byte-array returned from opening the file with open()
+    and reading it with the option "rb" for a byte-array.
+
+Objective 3:
+        By adding an additional elif statement, to parseHTTP(), any /images/xxx path can be checked and called through
+    objective 1's code.
+
+Objective 4:
+        The path data is dissected using split() and the appropriate files are called through objective 1 to complete
+    HTML skeleton in python. The python for loop and replace() was crucial for this objective. The completed HTML
+    skeleton was then encoded and sent to the 200 response code function to be used as the content of an html response.
+

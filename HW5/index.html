@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>CSE312 Sample Front End</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+<h1>CSE312 Sample Page</h1>
+<h2>Objective 1:</h2>
+<div id ="welcome">
+    <h3>Welcome!</h3>
+</div>
+
+
+    <h2>Objective 2/3:</h2>
+<div id="authenticate">
+    <h3>Please register or login.</h3>
+    <h4>Login Form: </h4>
+    <label for="username">Username: </label>
+    <input id="username" type="text" name="username">
+    <br/>
+    <label for="password">password: </label>
+    <input id="password" type="text" name="password">
+    <button onclick="login()">Login</button>
+    <br>
+    <div id="login"></div>
+    <br>
+
+    <h4>Register Form: </h4>
+    <label for="username2">Username: </label>
+    <input id="username2" type="text" name="username2">
+    <br/>
+    <label for="password2">password: </label>
+    <input id="password2" type="text" name="password2">
+    <button onclick="register()">Register</button>
+    <br>
+    <div id="register"></div>
+</div>
+
+<script src="functions.js"></script>
+</body>
+</html>

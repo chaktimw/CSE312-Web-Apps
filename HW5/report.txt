@@ -1,0 +1,20 @@
+Homework 5:
+    Additions:
+        Obj 1: Code checks if cookie "visited" exists; if it does, index.html is modified to "Welcome Back!"
+               Otherwise, user is just presented with "Welcome!"
+        Obj 2/3: Uses sql table labeled accounts
+            When user hits register button, the info within the two inputs are taken (only if non-empty) and inserted into
+        sql table if username does not exist (after salting and hashing password). Salt is also stored in table.
+            When user hits login, username is used to retrieve password and salt from sql table, tokens, and the user
+        inputed password is salted, hashed, and then compared with the one retrieved from the database. If they match,
+        a frame is sent back to the client where the javascript then modifies the index.html to show the user has logged in.
+
+        Obj 4: After user logs in for the first time, a token is generated through the secrets module and sent to the client.
+        This token is also sha hashed and inserted into tokens sql table. When the client refreshes and sends the token
+        to the server, it is sha hashed again and used to retrieve the username from the tokens sql table if it exists.
+        The client is alerted if the their token is correct through a message displaying on their index.html.
+
+
+
+
+

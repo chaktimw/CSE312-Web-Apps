@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>CSE312 Sample Front End</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body onload="welcomeAlert();">
+
+<h1>CSE312 Sample Page</h1>
+
+<h2>Add a comment</h2>
+<form action="/comment" id="comment-form" method="post" enctype="multipart/form-data">
+    <label for="text-form-name">Name: </label>
+    <input id="text-form-name" type="text" name="name"><br/>
+    <label for="form-comment">Comment: </label>
+    <input id="form-comment" type="text" name="comment">
+    <input type="submit" value="Submit">
+</form>
+
+<h2>Add a picture (assumes you sent a png file)</h2>
+<form action="/image-upload" id="image-form" method="post" enctype="multipart/form-data">
+    <label for="form-file">Image: </label>
+    <input id="form-file" type="file" name="upload">
+    <br/>
+    <label for="image-form-name">Caption: </label>
+    <input id="image-form-name" type="text" name="name">
+    <input type="submit" value="Submit">
+</form>
+
+<h1>Comments</h1>
+<div id="comments"></div>
+
+<h1>Pictures</h1>
+<div id="pictures"></div>
+
+<script src="functions.js"></script>
+</body>
+</html>

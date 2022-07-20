@@ -1,0 +1,25 @@
+Structure:
+    This assignment was structured based on the requirements for a basic python server using docker.
+    These files included: The Dockerfile, a requirements text file for docker to add, and the python server file itself.
+        The python server takes the received data, processes it, and then depending on the request type, sends out a response
+    according to the listed objectives in this assignment.
+        I had a separate function parse the received HTTP data so that the python code is easier to look over and copy over to any
+    future assignments if needed.
+
+Objective 1: Docker
+    Based on the docker example for python shown near the end of the docker lecture.
+        The Dockerfile sets the docker image to python, sets the root directory, copies the files from the current directory
+    into the image, installs any requirements (currently none), exposes port 8000, and runs the python server.
+
+Objective 2: Hello World!
+        I had the received data split into an array separated by the newlines "\r\n" and then I split the head of that array
+    to get the components of the request line. From there, I can just compare the requested path to each of the specified
+    paths for each objective. In this objective, it was "/hello" which will return a pre-made HTTP response.
+
+Objective 3: 301 Redirect
+        Following objective 2, if the requested path is "/hi", a pre-made HTTP response that follows a 301 response code
+    is sent. The response will redirect the user to the "/hello" path.
+
+Objective 4: 404 Not Found
+        Following objective 3, if the requested path is neither "/hi" or "/hello", a pre-made HTTP response that follows
+    a 404 response code is sent.

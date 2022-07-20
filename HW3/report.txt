@@ -1,0 +1,30 @@
+Overview HW3:
+    Files:
+        image, images, app.py, Dockerfile, functions.js, index.html, requirements.txt, style.css
+
+    Docker:
+    Based on the docker example for python shown near the end of the docker lecture.
+        The Dockerfile sets the docker image to python, sets the root directory, copies the files from the current directory
+    into the image, installs any requirements (currently none), exposes port 8000, and runs the python server.
+
+    Code:
+        The python server takes the received data request, splits the content and the headers up, and then depending on
+        the request type and path, sends out a response in the necessary format. The content length is read by
+        dissecting the headers from the initial buffersize of bytes taken from the TCP socket. If the content length
+        is greater than the buffer size, bytes will continue to be received until the total bytes received after the
+        header bytes are greater than the bytes shown in the content length header.
+
+
+        The paths are split between GET requests and POST requests. Get requests handle index.html, functions.js,
+        style.css, and any pictures in the images directory; other get requests are sent a 404 response. Post requests
+        deal with uploads (hw3) like text and pngs. Currently, text is stored in a data structure created when on server
+        startup. Pictures are saved in the images directory through a read(filename, "wb"). The picture data comes from
+        the bytes sent through the TCP socket which is exactly the number specified in the content length header; that
+        many bytes is accepted after the "\r\n\r\n" divider.
+
+
+
+
+
+
+
