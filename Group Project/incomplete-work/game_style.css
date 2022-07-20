@@ -1,0 +1,58 @@
+html, body{
+    height: 80%;
+}
+
+.menu{
+    background-color: #eb6a65;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    padding: 25px;
+}
+
+.menu_option{
+    border: #c42721 10px ridge;
+    padding: 15px;
+    font-family: 'Lucida Sans';
+    color: #80170a;
+}
+
+.menu_option:hover{
+    border: #877978 10px ridge;
+    background-color: #b0a3a2;
+    color: #635b5a;
+}
+
+#user_info{
+    margin-left: 10%;
+    display: inline-block;
+    background-color: #eb6a65;
+    border: #c42721 5px solid;
+    padding: 7px;
+}
+
+.grid{
+    height: 100%;
+}
+
+.sub-grid{
+    height: 100%;
+    width: 40%;
+    display: inline-block;
+    margin-left: 15%;
+    margin-top: 1%;
+    border: #c42721 5px solid;
+    position: relative;
+}
+
+#board{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#player{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}

@@ -1,0 +1,37 @@
+{% load static %}
+{% block content %} 
+{% if user.is_authenticated %}
+<div class="logout">
+	<a href="/logout">logout</a>
+</div>
+<div class="profile">
+	<a href="/profile">profile</a>
+</div>
+{% else %}
+<div class="login">
+	<a href="/login">login</a>
+</div>
+<div class="register">
+	<a href="/register">register</a>
+</div>
+{% endif %}
+
+<div class="UserList">
+	<h2>Logged in users</h2>
+	{% for user in users %}
+	<a href="">
+		<div class="wrapper">
+			<img
+				class="profile-picture"
+				src="{% static user.profilePicture %}"
+				width="32"
+				height="32"
+			/>
+			<div class="content">
+				<div class="username">{{ user.username }}</div>
+				<div class="signature">{{ user.userSignature }}</div>
+			</div>
+		</div>
+		{% endfor %} {% endblock %}
+	</a>
+</div>

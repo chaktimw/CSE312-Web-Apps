@@ -1,0 +1,23 @@
+{% load static %}
+{% block content %}
+<div class="content-section">
+	<img class="profile-picture" src="{% static user.profile.image.url %}" width="128" height="128"/>
+	<div>
+		<h2 class="username">Username:{{ user.username }}</h2>
+	</div>
+	<div>
+		<h2 class="signature">Signature:{{ user.profile.signature }}</h2>
+	</div>
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<fieldset class="form-group">
+			<legend>Profile Info</legend>
+			{{ profileSig }}
+			<div>
+				{{ profileForm }}
+			</div>
+		</fieldset>
+		<button type="submit">Update</button>
+	</form>
+</div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>Homepage</title></head>
+<link rel = "stylesheet" href = "game_style.css">
+<body style = "background-color: #ffb8b5;">
+
+<div class = "menu">
+    <a class = "menu_option">Idle Zone</a>
+</div>
+
+<div class = "grid">
+    <div class = "sub-grid">
+        <canvas id = "board"></canvas>
+        <canvas id = "player"></canvas>
+    </div>
+
+    <form id = "user_info">
+        <label><b><u>Enter User Information Here!</b></u></label><br>
+        <label for = "username">Username:</label>
+        <input type = "text" id = "username"><br>
+        <label><b>Click which player model you would like:</b></label><br>
+        <label for = "male">Male</label>
+        <input type = "radio" name = "model" id = "male">
+        <label for = "female">Female</label>
+        <input type = "radio" name = "model" id = "female"><br>
+        <button type = "button" id = "start">Enter Zone</button>
+        <button type = "button" id = "reset">Reset Info</button>
+    </form>
+    
+
+</div>
+
+</body>
+
+<script src = "game_js.js"></script>
+
+</html>

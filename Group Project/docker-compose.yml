@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  djangodb:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'django-db'
+      MYSQL_USER: 'django'
+      MYSQL_HOST: 'localhost'
+      MYSQL_TCP_PORT: '3000'
+      MYSQL_PASSWORD: '12345678'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - "3000:3000"
+  app:
+    build:
+      context: .
+    volumes:
+      - static_data:/project_files/
+    environment:
+      - SECRET_KEY=w*v2byt^)c!kqw-2u22mlv@eat*h29=selp)cqwy0anypirudo
+      # - ALLOWED_HOSTS=localhost,127.0.0.1,0.0.0.0
+      - ALLOWED_HOSTS=['cse312-28.dcsl.buffalo.edu']
+      # - USER=django
+      # - PASSWORD=12345678
+    depends_on: 
+      - djangodb
+
+  cse312nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static_data:/project_files/
+    ports:
+      - "80:80"
+    depends_on:
+      - app
+
+volumes:
+  static_data:
